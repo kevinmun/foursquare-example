@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  FourSquare
+
+  Created by Kevin Mun Kuang Tzer on 6/11/15.
+  Copyright (c) 2015 Kevin Mun Kuang Tzer. All rights reserved.
+*/
+"LoginViewController_title" = "Login With FourSquare";
+"LoginViewController_loginbuttonkey" = "Login With FourSquare";
+
+"WebViewController_title" = "Foursquare Login";
+"WebViewController_retrybutton" = "Retry";
+
+"UserDataViewController_title" = "Foursquare Profile";
+
+
+"VenueTableViewController_title" = "Foursquare Venues";
