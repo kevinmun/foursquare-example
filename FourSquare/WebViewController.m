@@ -8,6 +8,7 @@
 
 #import "WebViewController.h"
 #import "AppPref.h"
+#import "UIViewController+AppController.h"
 
 @interface WebViewController ()
 

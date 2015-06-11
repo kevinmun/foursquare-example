@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "UIViewController+AppController.h"
 #import <QuartzCore/QuartzCore.h>
 @implementation LoginViewController
 

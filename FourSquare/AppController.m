@@ -46,8 +46,7 @@
     }
     
     if(self.mainTabViewController == nil){
-        self.mainTabViewController = [[MainTabViewController alloc] init];
-        [self.mainTabViewController setAppController:self];
+        self.mainTabViewController = [[MainTabViewController alloc] initWithAppController:self];
     }
     
     if(self.window.rootViewController == nil) {
@@ -71,19 +70,19 @@
 #pragma nib controller construction
 
 - (WebViewController *) constructWebViewController {
-    WebViewController* webViewController =  [[WebViewController alloc] init];
+    WebViewController* webViewController =  [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil];
     [webViewController setAppController:self];
     return webViewController;
 }
 
 - (UserDataViewController *) constructUserDataViewController {
-    UserDataViewController* userDataController =  [[UserDataViewController alloc] init];
+    UserDataViewController* userDataController =  [[UserDataViewController alloc] initWithNibName:@"UserDataViewController" bundle:nil];
     [userDataController setAppController:self];
     return userDataController;
 }
 
 - (VenueTableViewController *) constructVenueTableViewController {
-    VenueTableViewController* venueController =  [[VenueTableViewController alloc] init];
+    VenueTableViewController* venueController =  [[VenueTableViewController alloc] initWithNibName:@"VenueTableViewController" bundle:nil];
     [venueController setAppController:self];
     return venueController;
 }

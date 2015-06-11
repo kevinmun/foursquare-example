@@ -7,6 +7,7 @@
 //
 
 #import "MainTabViewController.h"
+#import "UIViewController+AppController.h"
 
 @interface MainTabViewController ()
 
@@ -14,9 +15,21 @@
 
 @implementation MainTabViewController
 
--(void) loadView{
-    [super loadView];
-    
+-(instancetype)initWithAppController:(AppController*)appController{
+    self = [super init];
+    if(self){
+        [self setAppController:appController];
+        [self populateViewController];
+    }
+    return self;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(void) populateViewController {
     self.userDataViewController = [self.appController constructUserDataViewController];
     self.userDataViewController.title = NSLocalizedString(@"UserDataViewController_title", nil);
     self.userDataViewController.tabBarItem.image = [UIImage imageNamed:@"dash.png"];
@@ -29,22 +42,12 @@
     
     UINavigationController *userDataTab = [[UINavigationController alloc] initWithRootViewController:self.userDataViewController];
     UINavigationController *venueTab = [[UINavigationController alloc] initWithRootViewController:self.venueTableViewController];
-
+    
     self.viewControllers = @[userDataTab,
                              venueTab];
     
     //disable editing of tab bar
     self.customizableViewControllers = @[];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 

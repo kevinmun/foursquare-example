@@ -25,8 +25,8 @@
 		BE6B4CA81B2819DC004006FC /* UIViewController+AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6B4CA71B2819DC004006FC /* UIViewController+AppController.m */; };
 		BE6B4CAB1B283266004006FC /* AppPref.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6B4CAA1B283266004006FC /* AppPref.m */; };
 		BE6B4CB01B291125004006FC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE6B4CB21B291125004006FC /* Localizable.strings */; };
-		BE6B4CB71B2916DB004006FC /* dashon.png in Resources */ = {isa = PBXBuildFile; fileRef = BE6B4CB61B2916DB004006FC /* dashon.png */; };
-		BE6B4CB91B2916E0004006FC /* dash.png in Resources */ = {isa = PBXBuildFile; fileRef = BE6B4CB81B2916E0004006FC /* dash.png */; };
+		BE6B4CB71B2916DB004006FC /* dashon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE6B4CB61B2916DB004006FC /* dashon@2x.png */; };
+		BE6B4CB91B2916E0004006FC /* dash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE6B4CB81B2916E0004006FC /* dash@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,8 +71,8 @@
 		BE6B4CA91B283266004006FC /* AppPref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppPref.h; sourceTree = "<group>"; };
 		BE6B4CAA1B283266004006FC /* AppPref.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppPref.m; sourceTree = "<group>"; };
 		BE6B4CB41B29114F004006FC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		BE6B4CB61B2916DB004006FC /* dashon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dashon.png; sourceTree = "<group>"; };
-		BE6B4CB81B2916E0004006FC /* dash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dash.png; sourceTree = "<group>"; };
+		BE6B4CB61B2916DB004006FC /* dashon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dashon@2x.png"; sourceTree = "<group>"; };
+		BE6B4CB81B2916E0004006FC /* dash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,8 +199,8 @@
 		BE6B4CB51B291605004006FC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				BE6B4CB81B2916E0004006FC /* dash.png */,
-				BE6B4CB61B2916DB004006FC /* dashon.png */,
+				BE6B4CB81B2916E0004006FC /* dash@2x.png */,
+				BE6B4CB61B2916DB004006FC /* dashon@2x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -285,10 +285,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE6B4CB71B2916DB004006FC /* dashon.png in Resources */,
+				BE6B4CB71B2916DB004006FC /* dashon@2x.png in Resources */,
 				BE6B4C961B27FEB4004006FC /* UserDataViewController.xib in Resources */,
 				BE6B4CB01B291125004006FC /* Localizable.strings in Resources */,
-				BE6B4CB91B2916E0004006FC /* dash.png in Resources */,
+				BE6B4CB91B2916E0004006FC /* dash@2x.png in Resources */,
 				BE6B4C8B1B27FA35004006FC /* LoginViewController.xib in Resources */,
 				BE6B4C6C1B27F88E004006FC /* Images.xcassets in Resources */,
 				BE6B4CA31B28052F004006FC /* WebViewController.xib in Resources */,
