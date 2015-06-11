@@ -20,6 +20,10 @@
 @end
 
 @implementation AppController
+static NSString* versioning =@"20150611";
+static NSString* mode= @"foursquare";
+static NSString* userUrl = @"https://api.foursquare.com/v2/users/self?oauth_token=%@&v=%@&m=%@";
+static NSString* venueUrl = @"https://api.foursquare.com/v2/venues/explore?oauth_token=%@&ll=40.7,-74&limit=10&offset=%d&v=%@&m=%@";
 
 -(void) onLaunch {
     [self setup];
@@ -64,10 +68,41 @@
     
 }
 
+#pragma api calls - could be separated into a repo class
+- (void) getUserData:(void (^)(NSData *, NSError *)) handler{
+    NSString* token = [AppPref getToken];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:userUrl ,token,versioning,mode]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSError *error = nil;
+        NSData *received = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(handler!=nil)
+                handler(received,error);
+        });
+    });
+}
+
+- (void) getVenueData:(int)offset completion:(void(^)(VenueList *, NSError *))handler{
+     NSString* token = [AppPref getToken];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:venueUrl ,token,offset,versioning,mode]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSError *error = nil;
+        NSData *received = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+        NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:received options:NSJSONReadingAllowFragments error:&error];
+        VenueList *venueList = [[VenueList alloc]init];
+        [venueList translateVenues:jsonDic];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"%@",jsonDic);
+            if(handler!=nil)
+                handler(venueList,error);
+        });
+    });
+}
 
 
-
-#pragma nib controller construction
+#pragma nib controller construction - could be separated into a builder class
 
 - (WebViewController *) constructWebViewController {
     WebViewController* webViewController =  [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil];

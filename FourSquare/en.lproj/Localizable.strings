@@ -12,6 +12,9 @@
 "WebViewController_retrybutton" = "Retry";
 
 "UserDataViewController_title" = "Foursquare Profile";
+"UserDataViewController_labelloading" = "Loading...";
+"UserDataViewController_labelerror" = "Error Loading";
+"UserDataViewController_retrybutton" = "Retry";
 
 
 "VenueTableViewController_title" = "Foursquare Venues";

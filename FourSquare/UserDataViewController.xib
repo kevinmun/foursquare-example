@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserDataViewController">
             <connections>
+                <outlet property="retryButton" destination="zqC-Px-jao" id="5uQ-D5-Zh4"/>
+                <outlet property="userDataLabel" destination="X2g-CK-4vh" id="HX3-mr-K4m"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -13,7 +15,36 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="18" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2g-CK-4vh">
+                    <rect key="frame" x="20" y="100" width="560" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqC-Px-jao">
+                    <rect key="frame" x="50" y="165" width="500" height="30"/>
+                    <state key="normal" title="Retry">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="zqC-Px-jao" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="Ag5-Vw-SMh"/>
+                <constraint firstItem="zqC-Px-jao" firstAttribute="top" secondItem="X2g-CK-4vh" secondAttribute="bottom" constant="50" id="M5M-77-3jp"/>
+                <constraint firstAttribute="trailing" secondItem="zqC-Px-jao" secondAttribute="trailing" constant="50" id="OCe-vc-jh9"/>
+                <constraint firstItem="X2g-CK-4vh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="Yjc-HG-Ekd"/>
+                <constraint firstAttribute="centerX" secondItem="zqC-Px-jao" secondAttribute="centerX" id="ZaF-TJ-fcd"/>
+                <constraint firstAttribute="centerX" secondItem="X2g-CK-4vh" secondAttribute="centerX" id="aGj-aV-9ju"/>
+                <constraint firstItem="X2g-CK-4vh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="gQR-eA-fKG"/>
+                <constraint firstAttribute="trailing" secondItem="X2g-CK-4vh" secondAttribute="trailing" constant="20" id="iWc-Nj-jPB"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="ZaF-TJ-fcd"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>

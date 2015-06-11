@@ -7,6 +7,7 @@
 //
 
 #import "UserDataViewController.h"
+#import "UIViewController+AppController.h"
 
 @interface UserDataViewController ()
 
@@ -16,7 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.retryButton.hidden = TRUE;
+    [self.retryButton setTitle:NSLocalizedString(@"UserDataViewController_retrybutton", nil) forState:UIControlStateNormal];
+    [self.retryButton addTarget:self action:@selector(loadUserData) forControlEvents:UIControlEventTouchUpInside];
+    [self loadUserData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +28,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void) loadUserData {
+    self.retryButton.hidden = TRUE;
+    [self.userDataLabel setText:NSLocalizedString(@"UserDataViewController_labelloading", nil)];
+    [self.appController getUserData:^(NSData * data, NSError *error){
+        if(error== nil){
+            NSString *dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            [self.userDataLabel setText:dataString];
+        } else {
+            [self.userDataLabel setText:NSLocalizedString(@"UserDataViewController_labelerror", nil)];
+        }
+        self.retryButton.hidden = FALSE;
+    }];
 }
-*/
 
 @end

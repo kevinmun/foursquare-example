@@ -9,10 +9,15 @@
 #import "WebViewController.h"
 #import "UserDataViewController.h"
 #import "VenueTableViewController.h"
+#import "VenueList.h"
 
 @interface AppController : NSObject
 - (void) onLaunch;
 - (void) launchLoginSession;
+
+- (void) getUserData:(void (^)(NSData *, NSError *)) handler;
+- (void) getVenueData:(int)offset completion:(void(^)(VenueList *, NSError *))handler;
+
 - (WebViewController*) constructWebViewController;
 - (UserDataViewController*) constructUserDataViewController;
 - (VenueTableViewController*) constructVenueTableViewController;

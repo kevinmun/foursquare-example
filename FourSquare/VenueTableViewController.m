@@ -7,6 +7,7 @@
 //
 
 #import "VenueTableViewController.h"
+#import "UIViewController+AppController.h"
 
 @interface VenueTableViewController ()
 
@@ -16,13 +17,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self.appController getVenueData:0 completion:nil];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

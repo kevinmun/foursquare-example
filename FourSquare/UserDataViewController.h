@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface UserDataViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *userDataLabel;
+@property (weak, nonatomic) IBOutlet UIButton *retryButton;
 
 @end

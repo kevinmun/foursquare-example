@@ -27,6 +27,8 @@
 		BE6B4CB01B291125004006FC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE6B4CB21B291125004006FC /* Localizable.strings */; };
 		BE6B4CB71B2916DB004006FC /* dashon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE6B4CB61B2916DB004006FC /* dashon@2x.png */; };
 		BE6B4CB91B2916E0004006FC /* dash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE6B4CB81B2916E0004006FC /* dash@2x.png */; };
+		BE6B4CC21B2973C4004006FC /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6B4CC11B2973C4004006FC /* Venue.m */; };
+		BE6B4CC51B2973D8004006FC /* VenueList.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6B4CC41B2973D8004006FC /* VenueList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,10 @@
 		BE6B4CB41B29114F004006FC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BE6B4CB61B2916DB004006FC /* dashon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dashon@2x.png"; sourceTree = "<group>"; };
 		BE6B4CB81B2916E0004006FC /* dash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash@2x.png"; sourceTree = "<group>"; };
+		BE6B4CC01B2973C4004006FC /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venue.h; sourceTree = "<group>"; };
+		BE6B4CC11B2973C4004006FC /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
+		BE6B4CC31B2973D8004006FC /* VenueList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueList.h; sourceTree = "<group>"; };
+		BE6B4CC41B2973D8004006FC /* VenueList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueList.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +122,7 @@
 		BE6B4C5D1B27F88E004006FC /* FourSquare */ = {
 			isa = PBXGroup;
 			children = (
+				BE6B4CBC1B2941FB004006FC /* Models */,
 				BE6B4CB51B291605004006FC /* Resources */,
 				BE6B4C911B27FBB5004006FC /* VenueController */,
 				BE6B4C901B27FBA2004006FC /* UserDataController */,
@@ -203,6 +210,17 @@
 				BE6B4CB61B2916DB004006FC /* dashon@2x.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		BE6B4CBC1B2941FB004006FC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BE6B4CC01B2973C4004006FC /* Venue.h */,
+				BE6B4CC11B2973C4004006FC /* Venue.m */,
+				BE6B4CC31B2973D8004006FC /* VenueList.h */,
+				BE6B4CC41B2973D8004006FC /* VenueList.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,6 +328,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE6B4CC21B2973C4004006FC /* Venue.m in Sources */,
+				BE6B4CC51B2973D8004006FC /* VenueList.m in Sources */,
 				BE6B4CAB1B283266004006FC /* AppPref.m in Sources */,
 				BE6B4CA81B2819DC004006FC /* UIViewController+AppController.m in Sources */,
 				BE6B4C641B27F88E004006FC /* AppDelegate.m in Sources */,
