@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "EllipseControl.h"
 @interface EllipseViewController : UIViewController
-
+@property (weak,nonatomic) EllipseControl* control;
 @end

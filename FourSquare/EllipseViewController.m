@@ -7,7 +7,6 @@
 //
 
 #import "EllipseViewController.h"
-#import "EllipseControl.h"
 
 @interface EllipseViewController ()
 
@@ -18,13 +17,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    EllipseControl *control = [[EllipseControl alloc]initWithFrame:CGRectMake(0, 100, 100, 100)];
+    EllipseControl * control = [[EllipseControl alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];;
     [self.view addSubview:control];
+    self.control = control;
+}
+
+-(void) viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    self.control.center = self.view.center;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

@@ -27,8 +27,7 @@ static NSString* venueUrl = @"https://api.foursquare.com/v2/venues/explore?oauth
 
 -(void) onLaunch {
     [self setup];
-    //[self launchNewSession];
-    [self debugLaunchEllipse];
+    [self launchNewSession];
     [self.window makeKeyAndVisible];
 }
 
@@ -40,11 +39,6 @@ static NSString* venueUrl = @"https://api.foursquare.com/v2/venues/explore?oauth
     self.loginViewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
     [self.loginViewController setAppController:self];
     UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:self.loginViewController];
-    self.window.rootViewController = navController;
-}
-
--(void) debugLaunchEllipse {
-    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:[[EllipseViewController alloc] initWithNibName:@"EllipseViewController" bundle:nil]];
     self.window.rootViewController = navController;
 }
 
