@@ -10,7 +10,6 @@
 #import "Venue.h"
 @interface VenueList : NSObject
 @property (strong,nonatomic) NSArray *venues;
-@property (assign, nonatomic) int results;
 
--(void) translateVenues:(NSDictionary *)dict;
+-(void) translateVenues:(NSDictionary *)dict error:(NSError**)error;
 @end

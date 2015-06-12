@@ -14,15 +14,37 @@
 @end
 
 @implementation VenueTableViewController
+const int limit =10;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.appController getVenueData:0 completion:nil];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"VenueCell"];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"MoreCell"];
+    self.venueList = [[NSMutableArray alloc]init];
+    self.page = 0;
+    self.isLoading = FALSE;
+    self.allLoaded = FALSE;
+    [self loadVenueList:self.page];
+}
+
+-(void) loadVenueList:(int) page{
+    int currentOffset = page*limit;
+    self.page = page;
+    self.isLoading = TRUE;
+    __weak typeof(self)weakSelf = self;
+    [self.appController getVenueData:currentOffset completion:^(VenueList *venueList, NSError *error) {
+        if(error == nil){
+            if([venueList.venues count] >0){
+                [weakSelf.venueList addObjectsFromArray:venueList.venues];
+            } else {
+                weakSelf.allLoaded = TRUE;
+            }
+            [weakSelf.tableView reloadData];
+        } else {
+            NSLog(@"%@",error);
+        }
+         self.isLoading = FALSE;
+    }];
 }
 
 
@@ -34,26 +56,51 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    if(self.allLoaded)
+        return [self.venueList count];
+    else
+        return [self.venueList count]+1;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    if(indexPath.row == [self.venueList count]){
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MoreCell" forIndexPath:indexPath];
+        if(cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"MoreCell"];
+        }
+        UIActivityIndicatorView *activityView =
+        [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [activityView startAnimating];
+        [cell setAccessoryView:activityView];
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;
+        cell.textLabel.text = NSLocalizedString(@"VenueTableView_loading", nil);
+        
+        if (!self.allLoaded) {
+            self.page += 1;
+            __weak typeof(self)weakSelf = self;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelf loadVenueList:weakSelf.page];
+            });
+        }
+
+        return cell;
+    }
     
-    // Configure the cell...
-    
+    Venue *venue = [self.venueList objectAtIndex:indexPath.row];
+    UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:@"VenueCell" forIndexPath:indexPath];
+    if(cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"VenueCell"];
+    }
+    cell.textLabel.text = venue.name;
+    cell.detailTextLabel.text = venue.address;
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

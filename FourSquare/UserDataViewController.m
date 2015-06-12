@@ -31,14 +31,15 @@
 -(void) loadUserData {
     self.retryButton.hidden = TRUE;
     [self.userDataLabel setText:NSLocalizedString(@"UserDataViewController_labelloading", nil)];
+    __weak typeof(self) weakSelf = self;
     [self.appController getUserData:^(NSData * data, NSError *error){
         if(error== nil){
             NSString *dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            [self.userDataLabel setText:dataString];
+            [weakSelf.userDataLabel setText:dataString];
         } else {
-            [self.userDataLabel setText:NSLocalizedString(@"UserDataViewController_labelerror", nil)];
+            [weakSelf.userDataLabel setText:NSLocalizedString(@"UserDataViewController_labelerror", nil)];
         }
-        self.retryButton.hidden = FALSE;
+        weakSelf.retryButton.hidden = FALSE;
     }];
 }
 

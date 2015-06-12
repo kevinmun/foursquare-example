@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface VenueTableViewController : UITableViewController
-
+@property (strong,nonatomic) NSMutableArray* venueList;
+@property (assign,nonatomic) int page;
+@property (assign,nonatomic) bool isLoading;
+@property (assign,nonatomic) bool allLoaded;
 @end

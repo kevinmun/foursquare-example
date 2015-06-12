@@ -29,6 +29,7 @@
 		BE6B4CB91B2916E0004006FC /* dash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE6B4CB81B2916E0004006FC /* dash@2x.png */; };
 		BE6B4CC21B2973C4004006FC /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6B4CC11B2973C4004006FC /* Venue.m */; };
 		BE6B4CC51B2973D8004006FC /* VenueList.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6B4CC41B2973D8004006FC /* VenueList.m */; };
+		BE6B4CC81B2A6757004006FC /* NSDictionary+Path.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6B4CC71B2A6757004006FC /* NSDictionary+Path.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,8 @@
 		BE6B4CC11B2973C4004006FC /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
 		BE6B4CC31B2973D8004006FC /* VenueList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueList.h; sourceTree = "<group>"; };
 		BE6B4CC41B2973D8004006FC /* VenueList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueList.m; sourceTree = "<group>"; };
+		BE6B4CC61B2A6757004006FC /* NSDictionary+Path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Path.h"; sourceTree = "<group>"; };
+		BE6B4CC71B2A6757004006FC /* NSDictionary+Path.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Path.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +142,8 @@
 				BE6B4CA71B2819DC004006FC /* UIViewController+AppController.m */,
 				BE6B4CA91B283266004006FC /* AppPref.h */,
 				BE6B4CAA1B283266004006FC /* AppPref.m */,
+				BE6B4CC61B2A6757004006FC /* NSDictionary+Path.h */,
+				BE6B4CC71B2A6757004006FC /* NSDictionary+Path.m */,
 			);
 			path = FourSquare;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 			files = (
 				BE6B4CC21B2973C4004006FC /* Venue.m in Sources */,
 				BE6B4CC51B2973D8004006FC /* VenueList.m in Sources */,
+				BE6B4CC81B2A6757004006FC /* NSDictionary+Path.m in Sources */,
 				BE6B4CAB1B283266004006FC /* AppPref.m in Sources */,
 				BE6B4CA81B2819DC004006FC /* UIViewController+AppController.m in Sources */,
 				BE6B4C641B27F88E004006FC /* AppDelegate.m in Sources */,

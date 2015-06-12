@@ -92,9 +92,8 @@ static NSString* venueUrl = @"https://api.foursquare.com/v2/venues/explore?oauth
         NSData *received = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
         NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:received options:NSJSONReadingAllowFragments error:&error];
         VenueList *venueList = [[VenueList alloc]init];
-        [venueList translateVenues:jsonDic];
+        [venueList translateVenues:jsonDic error:&error];
         dispatch_async(dispatch_get_main_queue(), ^{
-            NSLog(@"%@",jsonDic);
             if(handler!=nil)
                 handler(venueList,error);
         });
