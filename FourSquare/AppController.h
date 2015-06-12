@@ -9,6 +9,7 @@
 #import "WebViewController.h"
 #import "UserDataViewController.h"
 #import "VenueTableViewController.h"
+#import "EllipseViewController.h"
 #import "VenueList.h"
 
 @interface AppController : NSObject
@@ -21,5 +22,6 @@
 - (WebViewController*) constructWebViewController;
 - (UserDataViewController*) constructUserDataViewController;
 - (VenueTableViewController*) constructVenueTableViewController;
+- (EllipseViewController *) constructEllipseViewController;
 
 @end

@@ -27,7 +27,8 @@ static NSString* venueUrl = @"https://api.foursquare.com/v2/venues/explore?oauth
 
 -(void) onLaunch {
     [self setup];
-    [self launchNewSession];
+    //[self launchNewSession];
+    [self debugLaunchEllipse];
     [self.window makeKeyAndVisible];
 }
 
@@ -39,6 +40,11 @@ static NSString* venueUrl = @"https://api.foursquare.com/v2/venues/explore?oauth
     self.loginViewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
     [self.loginViewController setAppController:self];
     UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:self.loginViewController];
+    self.window.rootViewController = navController;
+}
+
+-(void) debugLaunchEllipse {
+    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:[[EllipseViewController alloc] initWithNibName:@"EllipseViewController" bundle:nil]];
     self.window.rootViewController = navController;
 }
 
@@ -68,7 +74,7 @@ static NSString* venueUrl = @"https://api.foursquare.com/v2/venues/explore?oauth
     
 }
 
-#pragma api calls - could be separated into a repo class
+#pragma mark api calls - could be separated into a rest manager class
 - (void) getUserData:(void (^)(NSData *, NSError *)) handler{
     NSString* token = [AppPref getToken];
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:userUrl ,token,versioning,mode]];
@@ -101,7 +107,7 @@ static NSString* venueUrl = @"https://api.foursquare.com/v2/venues/explore?oauth
 }
 
 
-#pragma nib controller construction - could be separated into a builder class
+#pragma mark nib controller construction - could be separated into a builder class
 
 - (WebViewController *) constructWebViewController {
     WebViewController* webViewController =  [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil];
@@ -119,6 +125,12 @@ static NSString* venueUrl = @"https://api.foursquare.com/v2/venues/explore?oauth
     VenueTableViewController* venueController =  [[VenueTableViewController alloc] initWithNibName:@"VenueTableViewController" bundle:nil];
     [venueController setAppController:self];
     return venueController;
+}
+
+-(EllipseViewController *) constructEllipseViewController {
+    EllipseViewController* ellipseController =  [[EllipseViewController alloc] initWithNibName:@"EllipseViewController" bundle:nil];
+    [ellipseController setAppController:self];
+    return ellipseController;
 }
 
 

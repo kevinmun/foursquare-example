@@ -18,8 +18,6 @@ const int limit =10;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"VenueCell"];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"MoreCell"];
     self.venueList = [[NSMutableArray alloc]init];
     self.page = 0;
     self.isLoading = FALSE;
@@ -69,7 +67,7 @@ const int limit =10;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.row == [self.venueList count]){
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MoreCell" forIndexPath:indexPath];
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MoreCell"];
         if(cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"MoreCell"];
         }
@@ -92,12 +90,13 @@ const int limit =10;
     }
     
     Venue *venue = [self.venueList objectAtIndex:indexPath.row];
-    UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:@"VenueCell" forIndexPath:indexPath];
+    UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:@"VenueCell"];
     if(cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"VenueCell"];
     }
     cell.textLabel.text = venue.name;
     cell.detailTextLabel.text = venue.address;
+    cell.imageView.image =[UIImage imageNamed:@"dash.png"];
     return cell;
 }
 

@@ -40,11 +40,18 @@
     self.venueTableViewController.tabBarItem.image = [UIImage imageNamed:@"dash.png"];
     self.venueTableViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"dashon.png"];
     
+    self.ellipseViewController = [self.appController constructEllipseViewController];
+    self.ellipseViewController.title = NSLocalizedString(@"EllipseViewController_title", nil);
+    self.ellipseViewController.tabBarItem.image = [UIImage imageNamed:@"dash.png"];
+    self.ellipseViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"dashon.png"];
+    
     UINavigationController *userDataTab = [[UINavigationController alloc] initWithRootViewController:self.userDataViewController];
     UINavigationController *venueTab = [[UINavigationController alloc] initWithRootViewController:self.venueTableViewController];
+     UINavigationController *ellipseTab = [[UINavigationController alloc] initWithRootViewController:self.ellipseViewController];
     
     self.viewControllers = @[userDataTab,
-                             venueTab];
+                             venueTab,
+                             ellipseTab];
     
     //disable editing of tab bar
     self.customizableViewControllers = @[];

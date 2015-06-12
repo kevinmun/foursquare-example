@@ -30,6 +30,9 @@
 		BE6B4CC21B2973C4004006FC /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6B4CC11B2973C4004006FC /* Venue.m */; };
 		BE6B4CC51B2973D8004006FC /* VenueList.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6B4CC41B2973D8004006FC /* VenueList.m */; };
 		BE6B4CC81B2A6757004006FC /* NSDictionary+Path.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6B4CC71B2A6757004006FC /* NSDictionary+Path.m */; };
+		BE6B4CD01B2A90D8004006FC /* EllipseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6B4CCE1B2A90D8004006FC /* EllipseViewController.m */; };
+		BE6B4CD11B2A90D8004006FC /* EllipseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE6B4CCF1B2A90D8004006FC /* EllipseViewController.xib */; };
+		BE6B4CD41B2AAD11004006FC /* EllipseControl.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6B4CD31B2AAD11004006FC /* EllipseControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +85,11 @@
 		BE6B4CC41B2973D8004006FC /* VenueList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueList.m; sourceTree = "<group>"; };
 		BE6B4CC61B2A6757004006FC /* NSDictionary+Path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Path.h"; sourceTree = "<group>"; };
 		BE6B4CC71B2A6757004006FC /* NSDictionary+Path.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Path.m"; sourceTree = "<group>"; };
+		BE6B4CCD1B2A90D8004006FC /* EllipseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EllipseViewController.h; sourceTree = "<group>"; };
+		BE6B4CCE1B2A90D8004006FC /* EllipseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EllipseViewController.m; sourceTree = "<group>"; };
+		BE6B4CCF1B2A90D8004006FC /* EllipseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EllipseViewController.xib; sourceTree = "<group>"; };
+		BE6B4CD21B2AAD11004006FC /* EllipseControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EllipseControl.h; sourceTree = "<group>"; };
+		BE6B4CD31B2AAD11004006FC /* EllipseControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EllipseControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +133,7 @@
 		BE6B4C5D1B27F88E004006FC /* FourSquare */ = {
 			isa = PBXGroup;
 			children = (
+				BE6B4CC91B2A908C004006FC /* EllipseController */,
 				BE6B4CBC1B2941FB004006FC /* Models */,
 				BE6B4CB51B291605004006FC /* Resources */,
 				BE6B4C911B27FBB5004006FC /* VenueController */,
@@ -228,6 +237,18 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		BE6B4CC91B2A908C004006FC /* EllipseController */ = {
+			isa = PBXGroup;
+			children = (
+				BE6B4CCD1B2A90D8004006FC /* EllipseViewController.h */,
+				BE6B4CCE1B2A90D8004006FC /* EllipseViewController.m */,
+				BE6B4CCF1B2A90D8004006FC /* EllipseViewController.xib */,
+				BE6B4CD21B2AAD11004006FC /* EllipseControl.h */,
+				BE6B4CD31B2AAD11004006FC /* EllipseControl.m */,
+			);
+			name = EllipseController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -314,6 +335,7 @@
 				BE6B4CB91B2916E0004006FC /* dash@2x.png in Resources */,
 				BE6B4C8B1B27FA35004006FC /* LoginViewController.xib in Resources */,
 				BE6B4C6C1B27F88E004006FC /* Images.xcassets in Resources */,
+				BE6B4CD11B2A90D8004006FC /* EllipseViewController.xib in Resources */,
 				BE6B4CA31B28052F004006FC /* WebViewController.xib in Resources */,
 				BE6B4C9B1B27FEDD004006FC /* VenueTableViewController.xib in Resources */,
 			);
@@ -334,12 +356,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE6B4CC21B2973C4004006FC /* Venue.m in Sources */,
+				BE6B4CD01B2A90D8004006FC /* EllipseViewController.m in Sources */,
 				BE6B4CC51B2973D8004006FC /* VenueList.m in Sources */,
 				BE6B4CC81B2A6757004006FC /* NSDictionary+Path.m in Sources */,
 				BE6B4CAB1B283266004006FC /* AppPref.m in Sources */,
 				BE6B4CA81B2819DC004006FC /* UIViewController+AppController.m in Sources */,
 				BE6B4C641B27F88E004006FC /* AppDelegate.m in Sources */,
 				BE6B4C611B27F88E004006FC /* main.m in Sources */,
+				BE6B4CD41B2AAD11004006FC /* EllipseControl.m in Sources */,
 				BE6B4C8A1B27FA35004006FC /* LoginViewController.m in Sources */,
 				BE6B4CA21B28052F004006FC /* WebViewController.m in Sources */,
 				BE6B4C8E1B27FB78004006FC /* AppController.m in Sources */,

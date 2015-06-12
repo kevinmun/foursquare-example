@@ -10,11 +10,13 @@
 #import <UIKit/UIKit.h>
 #import "UserDataViewController.h"
 #import "VenueTableViewController.h"
+#import "EllipseViewController.h"
 
 @interface MainTabViewController : UITabBarController
 
 @property (strong, nonatomic) UserDataViewController *userDataViewController;
 @property (strong, nonatomic) VenueTableViewController *venueTableViewController;
+@property (strong, nonatomic) EllipseViewController *ellipseViewController;
 
 /**
  inits tab controller with the app controller which is vital to populating the other view controllers into the tab controller.
