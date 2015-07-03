@@ -23,7 +23,7 @@
 static NSString* versioning =@"20150611";
 static NSString* mode= @"foursquare";
 static NSString* userUrl = @"https://api.foursquare.com/v2/users/self?oauth_token=%@&v=%@&m=%@";
-static NSString* venueUrl = @"https://api.foursquare.com/v2/venues/explore?oauth_token=%@&ll=40.7,-74&limit=10&offset=%d&v=%@&m=%@";
+static NSString* venueUrl = @"https://api.foursquare.com/v2/venues/explore?oauth_token=%@&ll=40.7,-74&limit=%d&offset=%d&v=%@&m=%@";
 
 -(void) onLaunch {
     [self setup];
@@ -83,9 +83,9 @@ static NSString* venueUrl = @"https://api.foursquare.com/v2/venues/explore?oauth
     });
 }
 
-- (void) getVenueData:(int)offset completion:(void(^)(VenueList *, NSError *))handler{
+- (void) getVenueData:(int)offset limit:(int)limit completion:(void(^)(VenueList *, NSError *))handler{
      NSString* token = [AppPref getToken];
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:venueUrl ,token,offset,versioning,mode]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:venueUrl ,token,limit,offset,versioning,mode]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSError *error = nil;

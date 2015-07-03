@@ -1,16 +1,21 @@
+# Mac OS X
+*.DS_Store
 
+# Xcode
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
 *.xcuserstate
+project.xcworkspace/
+xcuserdata/
+
+# Generated files
+*.o
+*.pyc
+
+
+# Backup files
+*~.nib
 
 *.xcbkptlist
-
-*.xcuserstate
-
-*.xcbkptlist
-
-FourSquare.xcodeproj/project.xcworkspace/xcuserdata/kuangtzerm.xcuserdatad/UserInterfaceState.xcuserstate
-
-*.xcbkptlist
-
-FourSquare.xcodeproj/project.xcworkspace/xcuserdata/kuangtzerm.xcuserdatad/UserInterfaceState.xcuserstate
-
-FourSquare.xcodeproj/xcuserdata/kuangtzerm.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist

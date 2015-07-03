@@ -14,7 +14,8 @@
 
 @implementation EllipseControl
 const int PADDING = 5;
-const int knobRadius = 10;
+const int knobDiameter = 10;
+int knobRadius;
 int verticalDiamater;
 int horizontalDiameter;
 int verticalRadius;
@@ -24,6 +25,7 @@ int horizontalRadius;
     self = [super initWithFrame:frame];
     if(self){
         [self setOpaque:NO];
+        knobRadius = knobDiameter/2;
         verticalDiamater =self.frame.size.height/2;
         verticalRadius = verticalDiamater/2;
         self.currentAngle=360;
@@ -70,12 +72,12 @@ int horizontalRadius;
     CGContextSaveGState(ctx);
     CGPoint knobCenter = [self angleToPoint:self.currentAngle];
     [[UIColor blackColor]set];
-    CGContextFillEllipseInRect(ctx, CGRectMake(knobCenter.x, knobCenter.y, knobRadius, knobRadius));
+    CGContextFillEllipseInRect(ctx, CGRectMake(knobCenter.x, knobCenter.y, knobDiameter, knobDiameter));
     CGContextRestoreGState(ctx);
 }
 
 -(void)moveKnob:(CGPoint)lastPoint{
-    CGPoint centerPoint = CGPointMake(self.frame.size.width/2 - PADDING, self.frame.size.height/2 - PADDING);
+    CGPoint centerPoint = CGPointMake(self.frame.size.width/2 - knobRadius, self.frame.size.height/2 - knobRadius);
     float angle = [self angleFromNorth:centerPoint secondPoint:lastPoint flipped:NO];
     int angleInt = floor(angle);
     self.currentAngle = 360 - angleInt;
@@ -87,7 +89,7 @@ int horizontalRadius;
 
 - (CGPoint) angleToPoint:(int)angle{
     CGPoint result;
-    CGPoint centerPoint = CGPointMake(self.frame.size.width/2 - PADDING, self.frame.size.height/2 - PADDING);
+    CGPoint centerPoint = CGPointMake(self.frame.size.width/2 - knobRadius, self.frame.size.height/2 - knobRadius);
     float radians = [self toRadians:-angle];
     result.y = round(centerPoint.y +  verticalRadius * sin(radians)) ;
     result.x = round(centerPoint.x + horizontalRadius * cos(radians));

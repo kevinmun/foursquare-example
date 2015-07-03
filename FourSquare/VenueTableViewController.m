@@ -30,7 +30,7 @@ const int limit =10;
     self.page = page;
     self.isLoading = TRUE;
     __weak typeof(self)weakSelf = self;
-    [self.appController getVenueData:currentOffset completion:^(VenueList *venueList, NSError *error) {
+    [self.appController getVenueData:currentOffset limit:limit completion:^(VenueList *venueList, NSError *error) {
         if(error == nil){
             if([venueList.venues count] >0){
                 [weakSelf.venueList addObjectsFromArray:venueList.venues];
@@ -78,7 +78,7 @@ const int limit =10;
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
         cell.textLabel.text = NSLocalizedString(@"VenueTableView_loading", nil);
         
-        if (!self.allLoaded) {
+        if (!self.allLoaded && !self.isLoading) {
             self.page += 1;
             __weak typeof(self)weakSelf = self;
             dispatch_async(dispatch_get_main_queue(), ^{

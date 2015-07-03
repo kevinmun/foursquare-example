@@ -17,7 +17,7 @@
 - (void) launchLoginSession;
 
 - (void) getUserData:(void (^)(NSData *, NSError *)) handler;
-- (void) getVenueData:(int)offset completion:(void(^)(VenueList *, NSError *))handler;
+- (void) getVenueData:(int)offset limit:(int)limit completion:(void(^)(VenueList *, NSError *))handler;
 
 - (WebViewController*) constructWebViewController;
 - (UserDataViewController*) constructUserDataViewController;
